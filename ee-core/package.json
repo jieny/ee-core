@@ -1,5 +1,5 @@
 {
-  "name": "ee-core",
+  "name": "@pa/ee-core",
   "version": "4.1.5",
   "description": "ee core",
   "main": "index.js",
