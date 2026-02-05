@@ -71,8 +71,8 @@ class ElectronEgg {
     return app.register(eventName, handler);
   }
 
-  run() {
-    app.run();
+  run(preflight) {
+    app.run(preflight);
   }
 }
 

@@ -15,11 +15,11 @@ class Appliaction {
     return eventBus.register(eventName, handler);
   }
 
-  run() {
+  run(preflight) {
     loadController();
     loadSocket();
     eventBus.emitLifecycle(Ready);
-    loadElectron();
+    loadElectron(preflight);
   }
 }
 

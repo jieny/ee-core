@@ -11,7 +11,7 @@ const { getConfig } = require('../../config');
 /**
  * 创建electron应用
  */
-function createElectron() {
+function createElectron(preflight) {
   const { singleLock } = getConfig();
   // 允许多个实例 
   const gotTheLock = electronApp.requestSingleInstanceLock();
@@ -20,7 +20,15 @@ function createElectron() {
     return;
   }
 
-  electronApp.whenReady().then(() => {
+  electronApp.whenReady().then(async () => {
+    try {
+      await preflight();
+    } catch (err) {
+      coreLogger.error('[startup] init failed', err);
+      electronApp.quit();
+      return;
+    }
+
     createMainWindow();
     eventBus.emitLifecycle(Preload);
     loadServer();
