@@ -1,8 +1,7 @@
 @echo off
-
 echo publish package
 
-rem å…ˆä¿®æ”¹ package.json é‡Œçš„ç‰ˆæœ¬
+rem ÏÈÐÞ¸Ä package.json ÀïµÄ°æ±¾
 call npm publish
 
 @cmd /k
